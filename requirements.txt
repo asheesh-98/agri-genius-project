@@ -1,0 +1,9 @@
+Django==4.2
+gunicorn
+scikit-learn
+numpy
+pillow
+requests
+matplotlib
+djangorestframework
+razorpay
