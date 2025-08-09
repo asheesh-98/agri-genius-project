@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
+  <h2 class="text-xl font-bold mb-4">Disease Detection</h2>
+  <p class="text-sm text-gray-600 mb-4">Upload a leaf image and get instant inference (demo model).</p>
+  <form id="scanForm" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*" class="mb-3">
+    <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded">Scan</button>
+  </form>
+  <div id="result" class="mt-4"></div>
+</div>
+<script>
+document.getElementById('scanForm').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const resDiv = document.getElementById('result');
+  resDiv.innerHTML = 'Scanning...';
+  const resp = await fetch('/disease-scan/', { method:'POST', body:f });
+  const data = await resp.json();
+  if(data.result){
+    resDiv.innerHTML = `<div class="p-4 rounded bg-yellow-50">Result: <strong>${data.result}</strong> (confidence ${Math.round(data.confidence*100)}%)</div>`;
+  } else { resDiv.innerText = 'Scan failed.'; }
+});
+</script>
+{% endblock %}

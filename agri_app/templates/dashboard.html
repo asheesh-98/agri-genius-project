@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-xl font-bold">Your Dashboard</h2>
+<p class="mb-4">Your listings:</p>
+<div class="space-y-3">
+  {% for l in listings %}
+  <div class="p-3 border rounded">
+    <strong>{{ l.crop.name }}</strong> — Qty: {{ l.quantity }} — ₹{{ l.price }}
+  </div>
+  {% empty %}
+  <p>No listings yet.</p>
+  {% endfor %}
+</div>
+{% endblock %}

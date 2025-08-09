@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-xl font-bold mb-4">Government Schemes</h2>
+<div class="space-y-4">
+  {% for s in schemes %}
+  <div class="p-4 bg-white rounded shadow">
+    <h3 class="font-semibold">{{ s.title }}</h3>
+    <p class="text-sm text-gray-600">{{ s.desc }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

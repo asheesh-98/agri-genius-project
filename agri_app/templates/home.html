@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="bg-white rounded-lg p-8 shadow-lg">
+  <div class="md:flex items-center gap-8">
+    <div class="flex-1">
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-4">Sell directly. Reach buyers faster.</h1>
+      <p class="text-gray-600 mb-6">AgriGenius connects farmers to markets, provides disease detection, government schemes and financing tools.</p>
+      <div class="flex items-center gap-3">
+        <a href="/market/" class="px-5 py-3 bg-green-600 text-white rounded shadow hover:scale-105 transform transition">Visit Marketplace</a>
+        <a href="/disease-scan/" class="px-5 py-3 border rounded hover:bg-gray-100 transition">Check Disease</a>
+      </div>
+    </div>
+    <div class="w-full md:w-1/2 grid grid-cols-2 gap-4">
+      {% for crop in crops %}
+      <div class="p-4 bg-gradient-to-br from-white to-green-50 rounded-lg shadow-sm card-anim">
+        <div class="text-sm font-semibold">{{ crop.name }}</div>
+        <div class="text-xs text-gray-500">{{ crop.category }}</div>
+        <div class="mt-2 font-bold">₹<span data-price data-base="{{ crop.avg_price }}">{{ crop.avg_price }}</span></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
