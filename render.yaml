@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: agri-genius-project
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py migrate
+      python manage.py loaddata agri_app/fixtures/sample_data.json
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn agri_project.wsgi:application
