@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: agrigenius
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+      cd frontend-react && npm install && npm run build
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn agrigenius.wsgi
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: agrigenius.settings
+      - key: PYTHON_VERSION
+        value: 3.10

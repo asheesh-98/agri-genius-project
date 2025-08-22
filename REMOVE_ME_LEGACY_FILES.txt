@@ -1,0 +1,4 @@
+Remove these legacy files/folders for a clean deployment:
+- frontend/
+- templates/index.html
+- frontend/html/

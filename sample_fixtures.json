@@ -1,0 +1,98 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "username": "farmer1",
+      "password": "pbkdf2_sha256$260000$test$testhash",  
+      "role": "farmer",
+      "phone": "1234567890",
+      "address": "Village A"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "username": "buyer1",
+      "password": "pbkdf2_sha256$260000$test$testhash",
+      "role": "buyer",
+      "phone": "9876543210",
+      "address": "City B"
+    }
+  },
+  {
+    "model": "marketplace.crop",
+    "pk": 1,
+    "fields": {
+      "name": "Wheat",
+      "description": "High quality wheat from Punjab.",
+      "image": "crops/wheat.jpg"
+    }
+  },
+  {
+    "model": "marketplace.crop",
+    "pk": 2,
+    "fields": {
+      "name": "Rice",
+      "description": "Premium Basmati rice.",
+      "image": "crops/rice.jpg"
+    }
+  },
+  {
+    "model": "marketplace.listing",
+    "pk": 1,
+    "fields": {
+      "seller": 1,
+      "crop": 1,
+      "price": "1200.00",
+      "quantity": 100,
+      "is_active": true,
+      "created_at": "2025-08-20T10:00:00Z"
+    }
+  },
+  {
+    "model": "marketplace.order",
+    "pk": 1,
+    "fields": {
+      "buyer": 2,
+      "listing": 1,
+      "quantity": 10,
+      "total_price": "12000.00",
+      "status": "pending",
+      "ordered_at": "2025-08-20T10:10:00Z"
+    }
+  },
+  {
+    "model": "schemes.scheme",
+    "pk": 1,
+    "fields": {
+      "name": "PM-KISAN",
+      "description": "Direct income support to farmers.",
+      "eligibility": "All small and marginal farmers.",
+      "link": "https://pmkisan.gov.in/",
+      "updated_at": "2025-08-20T10:00:00Z"
+    }
+  },
+  {
+    "model": "schemes.scheme",
+    "pk": 2,
+    "fields": {
+      "name": "Soil Health Card",
+      "description": "Improving soil fertility and productivity.",
+      "eligibility": "All farmers.",
+      "link": "https://soilhealth.dac.gov.in/",
+      "updated_at": "2025-08-20T10:00:00Z"
+    }
+  },
+  {
+    "model": "disease_detection.diseasedetectionrequest",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "crop_image": "disease_detection/sample.jpg",
+      "result": "No disease detected. Crop is healthy!",
+      "created_at": "2025-08-20T10:20:00Z"
+    }
+  }
+]

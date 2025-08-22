@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Remove legacy and unused folders/files",
+			"type": "shell",
+			"command": "Remove-Item -Recurse -Force frontend,static,my-project,sample_data.json -ErrorAction SilentlyContinue",
+			"args": [],
+			"group": "build"
+		},
+		{
+			"label": "Clean up React app unused files",
+			"type": "shell",
+			"command": "cd frontend-react; Remove-Item -Recurse -Force src/logo.svg src/App.test.js src/reportWebVitals.js src/setupTests.js -ErrorAction SilentlyContinue",
+			"args": [],
+			"group": "build"
+		}
+	]
+}
